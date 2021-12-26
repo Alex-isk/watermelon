@@ -7,7 +7,7 @@ class InfoPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: WatermelonColors.infoTextBackground,
+      backgroundColor: WatermelonColors.pink,
       body: SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,

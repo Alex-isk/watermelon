@@ -1,6 +1,8 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_watermelon/resource/watermelon_colors.dart';
+import 'package:flutter_watermelon/styles/glass.dart';
 
 
 class ActionButton extends StatelessWidget {
@@ -21,21 +23,27 @@ class ActionButton extends StatelessWidget {
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 20),
         child: Container(
-          alignment: Alignment.bottomCenter,
-          decoration: BoxDecoration(
-            color: Color(0xFFEF5350),
-            borderRadius: BorderRadius.circular(80),
-          ),
-          child: Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: Text(
-              text,
-              style: TextStyle(
-                fontWeight: FontWeight.w500,
-                letterSpacing: 4,            // межбуквенный интервал
-                // height: 20,                     // высота строки
-                fontSize: 20,
-                color: Colors.black87,
+          width: double.infinity,
+          // alignment: Alignment.bottomCenter,
+          // decoration: BoxDecoration(
+          //   color: Color(0xFFEF5350),
+          //   borderRadius: BorderRadius.circular(80),
+          // ),
+          child: GlassMorphism(
+            start: 0.6,
+            end: 0.3,
+            child: Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Text(
+                text.toUpperCase(),
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontWeight: FontWeight.w500,
+                  letterSpacing: 4,            // межбуквенный интервал
+                  // height: 20,                     // высота строки
+                  fontSize: 20,
+                  color: WatermelonColors.grey,
+                ),
               ),
             ),
           ),

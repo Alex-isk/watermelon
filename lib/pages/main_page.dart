@@ -4,6 +4,7 @@ import 'package:flutter_watermelon/pages/language_page.dart';
 import 'package:flutter_watermelon/pages/sweet_page.dart';
 import 'package:flutter_watermelon/pages/watermelonpedia_page.dart';
 import 'package:flutter_watermelon/resource/watermelon_colors.dart';
+import 'package:flutter_watermelon/styles/glass.dart';
 import 'package:flutter_watermelon/widgets/action_button.dart';
 import 'package:flutter_watermelon/widgets/icons_widget.dart';
 
@@ -26,9 +27,10 @@ class MainPageContent extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       // backgroundColor: Colors.green[200],
+      backgroundColor: WatermelonColors.red3,
       // backgroundColor: Color.fromRGBO(206,255,29, 20),
-      // backgroundColor: Color.fromRGBO(117,184,85, 20),
-      backgroundColor: Color(0xFF2A5C03),
+      // backgroundColor: Color.fromRGBO(117,184,85, 20), // light green
+      // backgroundColor: Colors.black87,      //Color(0xFFC4825B),
       body: SafeArea(
         child: Expanded(
           child: Column(
@@ -43,7 +45,7 @@ class MainPageContent extends StatelessWidget {
                 'sweet',
                 style: TextStyle(
                   // color: Color(0xFFEF5350),
-                  color: WatermelonColors.red,
+                  color: WatermelonColors.sweetText,
                   fontWeight: FontWeight.w500,
                   letterSpacing: 4, // межбуквенный интервал
                   // height: 20,                     // высота строки
@@ -57,18 +59,18 @@ class MainPageContent extends StatelessWidget {
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 50,
-                    color: WatermelonColors.greenText,
+                    color: WatermelonColors.infoTextBackground,
                     fontWeight: FontWeight.w800,
                     letterSpacing: 5, // межбуквенный интервал
                     // height: 1.1,                     // высота строки
                   ),
                 ),
               ),
-
-              Image.asset('assets/images/watermelon.jpeg'),
+              Expanded(child: SizedBox()),
+              // Image.asset('assets/images/watermelon.jpeg'),
               SizedBox(height: 10),
               ActionButton(
-                text: 'Start'.toUpperCase(),
+                text: 'Start',
                 onTap: () {
                   Navigator.of(context).push(
                     MaterialPageRoute(
@@ -106,7 +108,7 @@ class MainPageContent extends StatelessWidget {
                   );
                 },
               ),
-              // SizedBox(height: 20),
+              SizedBox(height: 20),
             ],
           ),
         ),

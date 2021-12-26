@@ -12,6 +12,12 @@ class WatermelonColors {
   static const colorIcon = Color(0x8AFFFFFF);
   static const sweetText = Colors.white;
   static const infoTextBackground = Color(0xFFDBF3B8);
+
+  static const red3 = Color.fromRGBO(183, 36, 27, 1);
+  static const green = Color.fromRGBO(38, 85, 0, 1);
+  static const grey = Color.fromRGBO(33, 48, 54, 1);
+  static const pink = Color.fromRGBO(245, 143, 146, 1);
+  static const lightpink = Color.fromRGBO(238, 204, 204, 1.0);
   // static const greyButton = Color.fromRGBO(0, 0, 0, 0.38);
   // static const blueButton = Color.fromRGBO(28, 121, 206, 1);
   // static const blackButton = Color.fromRGBO(0, 0, 0, 0.87);

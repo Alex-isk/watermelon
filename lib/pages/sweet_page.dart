@@ -22,6 +22,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_watermelon/pages/main_page.dart';
 import 'package:flutter_watermelon/resource/watermelon_colors.dart';
+import 'package:flutter_watermelon/styles/glass.dart';
 import 'package:flutter_watermelon/widgets/action_button.dart';
 
 // class SweetPage extends StatelessWidget {
@@ -55,87 +56,91 @@ class SweetPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: WatermelonColors.infoTextBackground,
       body: SafeArea(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            const SizedBox(height: 10,),
-            Row(
-              // crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Container(
-                  color: WatermelonColors.red2,
-                  height: 100,
-                  width: 100,
-                ),
-                Container(
-                  color: WatermelonColors.red2,
-                  height: 100,
-                  width: 100,
-                ),
-                Container(
-                  color: WatermelonColors.red2,
-                  height: 100,
-                  width: 100,
-                ),
-              ],
-            ),
-            const SizedBox(
-              height: 30,
-            ),
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
-                child: ColoredBox(
-                  color: WatermelonColors.sweetText,
-                  child: SizedBox(
-                    width: double.infinity,
-                    child: Center(
-                      child: Text(
-                        'centerText',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontWeight: FontWeight.w400,
-                          fontSize: 10,
-                          color: Colors.white24,
+        child: GlassMorphism( 
+          start: 0.6,
+          end: 0.3,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              const SizedBox(height: 10,),
+              Row(
+                // crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Container(
+                    color: WatermelonColors.red2,
+                    height: 100,
+                    width: 100,
+                  ),
+                  Container(
+                    color: WatermelonColors.red2,
+                    height: 100,
+                    width: 100,
+                  ),
+                  Container(
+                    color: WatermelonColors.red2,
+                    height: 100,
+                    width: 100,
+                  ),
+                ],
+              ),
+              const SizedBox(
+                height: 30,
+              ),
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  child: ColoredBox(
+                    color: WatermelonColors.sweetText,
+                    child: SizedBox(
+                      width: double.infinity,
+                      child: Center(
+                        child: Text(
+                          'centerText',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontWeight: FontWeight.w400,
+                            fontSize: 10,
+                            color: Colors.white24,
+                          ),
                         ),
                       ),
                     ),
                   ),
                 ),
               ),
-            ),
-            const SizedBox(
-              height: 30,
-            ),
-            // ControlsWidget(
-            //   defendingBodyPart: defendingBodyPart,
-            //   selectDefendingBodyPart: _selectDefendingBodyPart,
-            //   attackingBodyPart: attackingBodyPart,
-            //   selectAttackingBodyPart: _selectAttackingBodyPart,
-            // ),
-            SizedBox(height: 14),
-            ActionButton(
-              text: 'Back'.toUpperCase(),
-              onTap: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (context) => MainPageContent(),
-                    // Navigator.of(context).pop(
-                    //   MaterialPageRoute(
-                    //       builder: (context) => MainPageContent()
-                  ),
-                );
-              },
-              // color: Colors.black[300]
-            ),
-            // ActionButton(
-            //   text: 'Back',
-            // onTap: _onGoButtonClicked,
-            // color: _getGoButtonColor(),
-            // ),
-            SizedBox(height: 16),
-          ],
+              const SizedBox(
+                height: 30,
+              ),
+              // ControlsWidget(
+              //   defendingBodyPart: defendingBodyPart,
+              //   selectDefendingBodyPart: _selectDefendingBodyPart,
+              //   attackingBodyPart: attackingBodyPart,
+              //   selectAttackingBodyPart: _selectAttackingBodyPart,
+              // ),
+              SizedBox(height: 14),
+              ActionButton(
+                text: 'Back'.toUpperCase(),
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => MainPageContent(),
+                      // Navigator.of(context).pop(
+                      //   MaterialPageRoute(
+                      //       builder: (context) => MainPageContent()
+                    ),
+                  );
+                },
+                // color: Colors.black[300]
+              ),
+              // ActionButton(
+              //   text: 'Back',
+              // onTap: _onGoButtonClicked,
+              // color: _getGoButtonColor(),
+              // ),
+              SizedBox(height: 16),
+            ],
+          ),
         ),
       ),
     );
