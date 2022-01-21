@@ -15,18 +15,25 @@ class InfoPage extends StatelessWidget {
             Container(
               padding: EdgeInsets.only(top: 25, left: 10, right: 10),
               child: Text(
-                'Information ...\nbla bla bla \nВсе мы сейчас желаем кушать, '
-                'потому что утомились и уже четвертый час, но это, душа моя Григорий Саввич,'
-                'не настоящий аппетит. Настоящий, волчий аппетит, когда, кажется, целый арбуз съел бы, '
-                'бывает только после физических движений.',
+                'Sweet Watermelon'
+                    '\n     '
+                    '\nAuthors: \n© Iskanderov A., Iskanderova D., '
+                    '\n    Khlebnikova L., Iskanderova S.'
+                    '\n    2022. All rights reserved.'
+                    '\n     '
+                    '\n    Application version 1.00.01.',
+                // 'Information ...\nbla bla bla \nВсе мы сейчас желаем кушать, '
+                // 'потому что утомились и уже четвертый час, но это, душа моя Григорий Саввич,'
+                // 'не настоящий аппетит. Настоящий, волчий аппетит, когда, кажется, целый арбуз съел бы, '
+                // 'бывает только после физических движений.',
                 textDirection: TextDirection.ltr,
                 softWrap: true,
                 style: TextStyle(
-                  fontWeight: FontWeight.w500,
+                  // fontWeight: FontWeight.w200,
                   // letterSpacing: 4, // межбуквенный интервал
                   // height: 20,                     // высота строки
-                  fontSize: 10,
-                  color: Colors.black87,
+                  fontSize: 15,
+                  color: WatermelonColors.blackText,
                 ),
               ),
             ),

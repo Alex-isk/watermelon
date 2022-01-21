@@ -30,8 +30,8 @@ class ActionButton extends StatelessWidget {
           //   borderRadius: BorderRadius.circular(80),
           // ),
           child: GlassMorphism(
-            start: 0.6,
-            end: 0.3,
+            start: 0.5,       // 0.3
+            end: 0.3,         // 0.1
             child: Padding(
               padding: const EdgeInsets.all(10.0),
               child: Text(
@@ -42,7 +42,7 @@ class ActionButton extends StatelessWidget {
                   letterSpacing: 4,            // межбуквенный интервал
                   // height: 20,                     // высота строки
                   fontSize: 20,
-                  color: WatermelonColors.grey,
+                  color: WatermelonColors.grey2,
                 ),
               ),
             ),

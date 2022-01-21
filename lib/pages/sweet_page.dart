@@ -1,29 +1,13 @@
-// class WatermelomyPage extends StatefulWidget {
-//   const FightPage({Key? key}) : super(key: key);
-//
-//   @override
-//   FightPageState createState() => FightPageState();
-// }
-//
-// class WatermelomyPage extends State<FightPage> {
-//   static const maxLives = 5;
-//
-//   BodyPart? defendingBodyPart;
-//   BodyPart? attackingBodyPart;
-//
-//   BodyPart whatEnemyAttacks = BodyPart.random();
-//   BodyPart whatEnemyDefends = BodyPart.random();
-//
-//   int yourLives = maxLives;
-//   int enemysLives = maxLives;
-//
-//   String centerText = '';
+// import 'dart:html';
+// import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_watermelon/pages/main_page.dart';
 import 'package:flutter_watermelon/resource/watermelon_colors.dart';
 import 'package:flutter_watermelon/styles/glass.dart';
 import 'package:flutter_watermelon/widgets/action_button.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:sleek_circular_slider/sleek_circular_slider.dart';
 
 // class SweetPage extends StatelessWidget {
 //   @override
@@ -49,76 +33,320 @@ import 'package:flutter_watermelon/widgets/action_button.dart';
 //     );
 //   }
 // }
+// final File photo = await ImagePicker.pickImage(source: ImageSource.gallery);
+// // для pickImage можно еще указать максимальные показатели ширины и высоты, иначе изображение вернется в оригинальном размере
 
-class SweetPage extends StatelessWidget {
+class SweetPage extends StatefulWidget {
+  // File _image;
+  // Future getImage() async {
+  //   final image = await ImagePicker.picImage(source: ImageSource.camera);
+  //   setSate(() {
+  //     _image = image;
+  //   });
+  // }
+
+  @override
+  State<SweetPage> createState() => _SweetPageState();
+}
+
+class _SweetPageState extends State<SweetPage> {
+  double _value = 0.5;
+  String _status = 'Start';
+  Color _statusColor = Colors.red;
+  final slider = SleekCircularSlider;
+
+  // String percentageModifier(double value) {
+  //   final roundedValue = value.ceil().toInt().toString();
+  //   return '$roundedValue kg';
+  // }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: WatermelonColors.infoTextBackground,
+      backgroundColor: WatermelonColors.red4,
+      // floatingActionButton: FloatingActionButton(
+      //   onPressed: () {},
+      //   tooltip: 'Increment',
+      //   child: Icon(Icons.blur_circular_outlined, color: WatermelonColors.red4,),
+      // ),
+      // floatingActionButtonLocation: FloatingActionButtonLocation.miniEndFloat,
+      // // backgroundColor: WatermelonColors.infoTextBackground,
       body: SafeArea(
-        child: GlassMorphism( 
-          start: 0.6,
-          end: 0.3,
+        child: Container(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage('assets/images/wmbackground.jpg'),
+              fit: BoxFit.cover,
+            ),
+          ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              const SizedBox(height: 10,),
+              const SizedBox(
+                height: 30,
+              ),
+
               Row(
-                // crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Container(
-                    color: WatermelonColors.red2,
-                    height: 100,
-                    width: 100,
+                  const SizedBox(width: 5),
+
+
+                  SleekCircularSlider(
+                    appearance: CircularSliderAppearance(
+                      size: 175, startAngle: 90, angleRange: 180,
+                      counterClockwise: false,
+                      // внешний вид ползунка - size:значение-ширины и высоты/ startAngle: угол-начало/ angleRange: угол end
+                      // counterClockwise: по часовой стр- по умолч false /
+                      customWidths: CustomSliderWidths(
+                          trackWidth: 15,
+                          progressBarWidth: 25,
+                          handlerSize: 18,
+                          shadowWidth: 5),
+                      // CustomSliderWidths(trackWidth: ширина дорожки, progressBarWidth: ширина прогресса,handlerSize:размер ползунка,shadowWidth:тень прогресса
+                      customColors: CustomSliderColors(
+                        trackColor: WatermelonColors.lightpink,
+                        // progressBarColors: [WatermelonColors.lightpink, WatermelonColors.lightpink2, WatermelonColors.red4],
+                        //   gradientStartAngle: 50, gradientEndAngle: 50,
+                        progressBarColor: WatermelonColors.red2,
+                        shadowColor: WatermelonColors.red4,
+                        dynamicGradient: true, dotColor: WatermelonColors.grey,
+                        shadowStep: 8,
+                      ),
+                      infoProperties: InfoProperties(
+                          bottomLabelText: 'kilogram'.toUpperCase(),
+                          // topLabelText: 'weight'.toUpperCase(),
+                          topLabelStyle: TextStyle(
+                            color: WatermelonColors.grey,
+                            fontSize: 12,
+                            letterSpacing: 4,
+                          ),
+                          bottomLabelStyle: TextStyle(
+                            color: WatermelonColors.grey,
+                            fontSize: 12,
+                            letterSpacing: 4,
+                          ),
+                          mainLabelStyle: TextStyle(
+                              color: WatermelonColors.grey, fontSize: 22),
+                          modifier: (double value) {
+                            // заменить проценты на кг
+                            final roundedValue =
+                                value.ceil().toInt().toString();
+                            return '$roundedValue ';
+                          }),
+                    ),
+                    min: 0,
+                    max: 35,
+                    initialValue: 1, // начальное значение
+                    onChange: (double value) {
+                      // обратный вызов, предоставляющий значение при его изменении (с помощью жеста панорамирования)
+                    },
+                    onChangeStart: (double startValue) {
+                      // обратный вызов, предоставляющий начальное значение (при запуске жеста панорамирования)
+                    },
+                    onChangeEnd: (double endValue) {
+                      // ucallback, предоставляющий конечное значение (когда заканчивается жест панорамирования)
+                    },
+                    // innerWidget: (double value) {
+                    //   // используйте свой пользовательский виджет внутри слайдера (получает значение слайдера при обратном вызове)
+                    //   return
+                    // }
                   ),
-                  Container(
-                    color: WatermelonColors.red2,
-                    height: 100,
-                    width: 100,
+
+                  // Expanded(child: SizedBox()),
+
+                  Text('weight'.toUpperCase(),
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontWeight: FontWeight.w500,
+                      letterSpacing: 0,            // межбуквенный интервал
+                      // height: 20,                     // высота строки
+                      fontSize: 12,
+                      color: WatermelonColors.grey,
+                    ),
+
                   ),
-                  Container(
-                    color: WatermelonColors.red2,
-                    height: 100,
-                    width: 100,
+
+
+
+                  SleekCircularSlider(
+                    appearance: CircularSliderAppearance(
+                      size: 175, startAngle: 90, angleRange: 180,
+                      counterClockwise: true,
+                      // внешний вид ползунка - size:значение-ширины и высоты/ startAngle: угол-начало/ angleRange: угол end
+                      // counterClockwise: по часовой стр- по умолч false /
+                      customWidths: CustomSliderWidths(
+                          trackWidth: 15,
+                          progressBarWidth: 25,
+                          handlerSize: 18,
+                          shadowWidth: 5),
+                      // CustomSliderWidths(trackWidth: ширина дорожки, progressBarWidth: ширина прогресса,handlerSize:размер ползунка,shadowWidth:тень прогресса
+                      customColors: CustomSliderColors(
+                        trackColor: WatermelonColors.lightpink,
+                        // progressBarColors: [WatermelonColors.lightpink, WatermelonColors.lightpink2, WatermelonColors.red4],
+                        //   gradientStartAngle: 50, gradientEndAngle: 50,
+                        progressBarColor: WatermelonColors.red2,
+                        shadowColor: WatermelonColors.red4,
+                        dynamicGradient: true, dotColor: WatermelonColors.grey,
+                        shadowStep: 8,
+                      ),
+                      infoProperties: InfoProperties(
+                          bottomLabelText: 'grams'.toUpperCase(),
+                          // topLabelText: 'weight'.toUpperCase(),
+                          topLabelStyle: TextStyle(
+                            color: WatermelonColors.grey,
+                            fontSize: 12,
+                            letterSpacing: 4,
+                          ),
+                          bottomLabelStyle: TextStyle(
+                            color: WatermelonColors.grey,
+                            fontSize: 12,
+                            letterSpacing: 4,
+                          ),
+                          mainLabelStyle: TextStyle(
+                              color: WatermelonColors.grey, fontSize: 22),
+                          modifier: (double value) {
+                            // заменить проценты на кг
+                            final roundedValue =
+                            value.ceil().toInt().toString();
+                            return '$roundedValue ';
+                          }),
+                    ),
+                    min: 0,
+                    max: 1000,
+                    initialValue: 10, // начальное значение
+                    onChange: (double value) {
+                      // обратный вызов, предоставляющий значение при его изменении (с помощью жеста панорамирования)
+                    },
+                    onChangeStart: (double startValue) {
+                      // обратный вызов, предоставляющий начальное значение (при запуске жеста панорамирования)
+                    },
+                    onChangeEnd: (double endValue) {
+                      // ucallback, предоставляющий конечное значение (когда заканчивается жест панорамирования)
+                    },
+                    // innerWidget: (double value) {
+                    //   // используйте свой пользовательский виджет внутри слайдера (получает значение слайдера при обратном вызове)
+                    //   return
+                    // }
                   ),
                 ],
               ),
-              const SizedBox(
-                height: 30,
+
+              Slider(
+                min: 0.0,
+                max: 30.0,
+                divisions: 100,
+                label: '${_value.round()}',
+                activeColor: WatermelonColors.grey,
+                inactiveColor: WatermelonColors.lightpink,
+                thumbColor: WatermelonColors.grey,
+                value: _value,
+                onChanged: (value) {
+                  setState(() {
+                    _value = value;
+                  });
+                },
               ),
+              // Slider(
+              //   min: 0.0,
+              //   max: 50.0,
+              //   value: _value,
+              //   divisions: 10,
+              //   onChanged: (value) {
+              //     setState(() {
+              //       _value = value;
+              //       _status = 'active (${_value.round()})';
+              //       _statusColor = Colors.green;
+              //     });
+              //   },
+              //   onChangeStart: (value) {
+              //     setState(() {
+              //       _status = 'start';
+              //       _statusColor = Colors.lightGreen;
+              //     });
+              //   },
+              //   onChangeEnd: (value) {
+              //     setState(() {
+              //       _status = 'end';
+              //       _statusColor = Colors.red;
+              //     });
+              //   },
+              // ),
+              // Text(
+              //   'Status: $_status',
+              //   style: TextStyle(color: _statusColor),
+              // ),
+
+              // const SizedBox(
+              //   height: 10,
+              // ),
+              // Row(
+              //   // crossAxisAlignment: CrossAxisAlignment.center,
+              //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              //   children: [
+              //     Container(
+              //       color: WatermelonColors.red2,
+              //       height: 100,
+              //       width: 100,
+              //     ),
+              //     Container(
+              //       color: WatermelonColors.red2,
+              //       height: 100,
+              //       width: 100,
+              //     ),
+              //     Container(
+              //       color: WatermelonColors.red2,
+              //       height: 100,
+              //       width: 100,
+              //     ),
+              //   ],
+              // ),
+              // const SizedBox(height: 30),
+              //
+              // Expanded(
+              //   child: Padding(
+              //     padding: const EdgeInsets.symmetric(horizontal: 16),
+              //     child: ColoredBox(
+              //       color: WatermelonColors.sweetText,
+              //       child: SizedBox(
+              //         width: double.infinity,
+              //         child: Slider(min: 0, max: 100, value: _value, onChanged: (value) {
+              //             setState(() {_value = value;});
+              //           },
+              //           ),
+              //
+              //
+              //         ),
+              //         // Center(
+              //         //   child: CenterText(),
+              //         //   // child: _image == null ? CenterText() : Image.file(_image),
+              //         //
+              //         // ),
+              //       // ),
+              //     ),
+              //   ),
+              // ),
+
               Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16),
-                  child: ColoredBox(
-                    color: WatermelonColors.sweetText,
-                    child: SizedBox(
-                      width: double.infinity,
-                      child: Center(
-                        child: Text(
-                          'centerText',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            fontWeight: FontWeight.w400,
-                            fontSize: 10,
-                            color: Colors.white24,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
+                child: const SizedBox(
+                  height: 30,
                 ),
               ),
-              const SizedBox(
-                height: 30,
+              Align(
+                alignment: Alignment.bottomCenter,
+                child: ActionButton(
+                  text: 'Measure',
+                  onTap: () {
+                    // Navigator.of(context).push(
+                    //   MaterialPageRoute(
+                    //     builder: (context) => SweetPage(),
+                    //   ),
+                    // );
+                  },
+                  // color: Colors.black[300]
+                ),
               ),
-              // ControlsWidget(
-              //   defendingBodyPart: defendingBodyPart,
-              //   selectDefendingBodyPart: _selectDefendingBodyPart,
-              //   attackingBodyPart: attackingBodyPart,
-              //   selectAttackingBodyPart: _selectAttackingBodyPart,
-              // ),
-              SizedBox(height: 14),
+
+              const SizedBox(height: 10),
               ActionButton(
                 text: 'Back'.toUpperCase(),
                 onTap: () {
@@ -138,10 +366,34 @@ class SweetPage extends StatelessWidget {
               // onTap: _onGoButtonClicked,
               // color: _getGoButtonColor(),
               // ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
             ],
           ),
         ),
+      ),
+      // floatingActionButton: FloatingActionButton(
+      //   onPressed: getImage,
+      //   tooltip: 'Increment',
+      //   child: Icon(Icons.camera_alt_outlined, color: WatermelonColors.red3,),
+      // ),
+    );
+  }
+}
+
+class CenterText extends StatelessWidget {
+  const CenterText({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      'Image is not loaded',
+      textAlign: TextAlign.center,
+      style: TextStyle(
+        fontWeight: FontWeight.w400,
+        fontSize: 10,
+        color: Colors.white24,
       ),
     );
   }
