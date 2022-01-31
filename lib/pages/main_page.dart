@@ -27,11 +27,7 @@ class MainPageContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor: Colors.green[200],
       backgroundColor: WatermelonColors.red4,
-      // backgroundColor: Color.fromRGBO(206,255,29, 20),
-      // backgroundColor: Color.fromRGBO(117,184,85, 20), // light green
-      // backgroundColor: Colors.black87,      //Color(0xFFC4825B),
       body: SafeArea(
 
         child: Stack(
@@ -57,7 +53,7 @@ class MainPageContent extends StatelessWidget {
                 // const SizedBox(height: 20),
 
                 Text(
-                  'sweet',
+                  'sweet'.toLowerCase(),
                   style: TextStyle(
                     // color: Color(0xFFEF5350),
                     color: WatermelonColors.sweetText,
@@ -81,9 +77,13 @@ class MainPageContent extends StatelessWidget {
                     ),
                   ),
                 ),
+
                 // Expanded(child: SizedBox()),
+
                 Expanded(child: Image.asset('assets/images/front_wm.png', fit: BoxFit.cover,),),
+
                 const SizedBox(height: 10),
+
                 ActionButton(
                   text: 'Start',
                   onTap: () {
@@ -95,22 +95,7 @@ class MainPageContent extends StatelessWidget {
                   },
                   // color: Colors.black[300]
                 ),
-                // Stack(alignment: Alignment.bottomCenter,
-                //     children: [
-                //   Container(height: 250),
-                //   Image.asset('assets/images/watermelon.jpeg'),
-                //   ActionButton(
-                //     text: 'Start'.toUpperCase(),
-                //     onTap: () {
-                //       Navigator.of(context).push(
-                //         MaterialPageRoute(
-                //           builder: (context) => WatermelonPage(),
-                //         ),
-                //       );
-                //     },
-                //     // color: Colors.black[300]
-                //   ),
-                // ]),
+
                 const SizedBox(height: 10),
 
                 ActionButton(

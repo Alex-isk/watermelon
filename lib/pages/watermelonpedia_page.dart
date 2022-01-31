@@ -41,7 +41,7 @@ class WatermelonpediaPage extends StatelessWidget {
                     textAlign: TextAlign.center,
                     style: TextStyle(
                         color: WatermelonColors.grey,
-                        fontSize: 20,
+                        fontSize: 18,
                         fontWeight: FontWeight.w900,
                         fontFamily: 'BalsamiqSans-Regular'),
                   ),

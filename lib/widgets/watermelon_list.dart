@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_watermelon/resource/watermelon_colors.dart';
 import 'package:flutter_watermelon/widgets/watermelon_info.dart';
 
 // class WatermelonList extends StatelessWidget {
@@ -141,12 +140,15 @@ import 'package:flutter_watermelon/widgets/watermelon_info.dart';
 // }
 
 class WatermelonListEng extends StatelessWidget {
+  const WatermelonListEng({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return ListView(
         // padding: EdgeInsets.all(0.0),
         children: [
-      WatermelonInfo(
+          const SizedBox(height: 59),
+      const WatermelonInfo(
         name: 'Light',
         text: '''
 Shape: Round
@@ -155,9 +157,9 @@ Flesh: juicy, bright red, grainy
 Taste: sweet
 Peel: thin, dark green
 Seeds: black, small''',
-        image: 'assets/images/front_wm.png',
+        image: 'assets/images/light.png',
       ),
-      WatermelonInfo(
+      const WatermelonInfo(
         name: 'Carolina Cross',
         text: '''
 Shape: Oblong
@@ -166,9 +168,9 @@ Flesh: juicy, bright red
 Taste: sweet
 Peel: thick, green with light green stripes
 Seeds: large''',
-        image: 'assets/images/front_wm.png',
+        image: 'assets/images/carolina_cross.png',
       ),
-      WatermelonInfo(
+       const WatermelonInfo(
         name: 'Astrakhan',
         text: '''
 Shape: rounded, sometimes elongated
@@ -177,9 +179,9 @@ Flesh: juicy, bright red, fine-grained
 Taste: sweet, the brighter the contrast between the stripes, the richer the taste
 Peel: thick to 2.4 cm, green with longitudinal spreading stripes, matte
 Seeds: black or light gray''',
-        image: 'assets/images/front_wm.png',
+        image: 'assets/images/astrakhan.png',
       ),
-      WatermelonInfo(
+          const WatermelonInfo(
         name: 'Crimson Sweet (Producer)',
         text: '''
 Shape: rounded, sometimes elongated
@@ -188,9 +190,9 @@ Flesh: juicy, tender without streaks
 Taste: sweet, 
 Peel: thick, green with longitudinal spreading stripes, shiny
 Seeds: black''',
-        image: 'assets/images/front_wm.png',
+        image: 'assets/images/crimson_sweet.png',
       ),
-      WatermelonInfo(
+          const WatermelonInfo(
         name: 'Sugar Baby',
         text: '''
 Shape: Round
@@ -199,9 +201,9 @@ Flesh: juicy, grainy, red
 Taste: sweet, 
 Skin: thin, dark green, smooth
 Seeds: dark brown, a lot''',
-        image: 'assets/images/front_wm.png',
+        image: 'assets/images/sugar_baby.png',
       ),
-      WatermelonInfo(
+          const WatermelonInfo(
         name: 'Moon and Stars',
         text: '''
 Shape: round or elongated
@@ -210,9 +212,9 @@ Flesh: juicy, grainy, pink or yellow
 Taste: sweet, 
 Peel: thick, dark green with yellow spots
 Seeds: black or light''',
-        image: 'assets/images/front_wm.png',
+        image: 'assets/images/moon_stars.png',
       ),
-      WatermelonInfo(
+          const WatermelonInfo(
         name: 'Charleston Grey',
         text: '''
 Shape: Oblong
@@ -221,9 +223,9 @@ Flesh: juicy, red or pink
 Taste: sweet, 
 Peel: thick, light green without stripes
 Seeds: dark brown''',
-        image: 'assets/images/front_wm.png',
+        image: 'assets/images/charleston_grey.png',
       ),
-      WatermelonInfo(
+          const WatermelonInfo(
         name: 'Navajo Winter',
         text: '''
 Shape: Round
@@ -232,9 +234,9 @@ Flesh: juicy, red or light pink
 Taste: sweet, 
 Peel: thick, light green or light green with stripes
 Seeds: black, few''',
-        image: 'assets/images/front_wm.png',
+        image: 'assets/images/navajo_winter.png',
       ),
-      WatermelonInfo(
+          const WatermelonInfo(
         name: 'Prince Hamlet',
         text: '''
 Shape: Rounded
@@ -243,9 +245,9 @@ Flesh: juicy, yellow
 Taste: sweet, 
 Peel: medium, light green with narrow green stripes
 Seeds: very few''',
-        image: 'assets/images/front_wm.png',
+        image: 'assets/images/prince_hamlet.png',
       ),
-      WatermelonInfo(
+          const WatermelonInfo(
         name: 'Stabolite',
         text: '''
 Shape: Oval
@@ -254,9 +256,9 @@ Flesh: red dense
 Taste: sweet, 
 Peel: medium, dark with light, blurred stripes
 Seeds: very few''',
-        image: 'assets/images/front_wm.png',
+        image: 'assets/images/stabolite.png',
       ),
-      WatermelonInfo(
+          const WatermelonInfo(
         name: 'Chill',
         text: '''
 Shape: Oval
@@ -265,7 +267,7 @@ Flesh: pink, grainy
 Taste: moderately sweet, juicy
 Peel: green, dark green stripes, smooth
 Seeds: brown, large''',
-        image: 'assets/images/front_wm.png',
+        image: 'assets/images/chill.png',
       ),
       Image.asset('assets/images/front_wm.png'),
       // Container(height: 30,),

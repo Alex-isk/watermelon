@@ -22,7 +22,7 @@ class WatermelonInfo extends StatelessWidget {
       // alignment: Alignment.center,
       // padding: EdgeInsets.all(10),
       // margin: EdgeInsets.symmetric(horizontal: 5),
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
       image: DecorationImage(
       image: AssetImage('assets/images/wmbackground.jpg'),
       fit: BoxFit.cover,
@@ -46,18 +46,20 @@ class WatermelonInfo extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-
+                const SizedBox(height: 10),
                 Center(
                   child: Image.asset(
                     image,
                     fit: BoxFit.cover,
-                    width: 320,
-                    height: 270),
+                    width: 200,         //320
+                    height: 200,        // 270
+                  ),
                 ),
                 // const SizedBox(width: 50),
+                const SizedBox(height: 5),
                 Text(
                   name.toUpperCase(),
-                  style: TextStyle(
+                  style: const TextStyle(
                       color: WatermelonColors.grey,
                       fontSize: 20,
                       fontWeight: FontWeight.w700, fontFamily: 'BalsamiqSans-Regular'),
@@ -67,7 +69,7 @@ class WatermelonInfo extends StatelessWidget {
                   text,
                   softWrap: true,
                   textAlign: TextAlign.left,
-                  style: TextStyle(
+                  style: const TextStyle(
                       color: WatermelonColors.grey,
                       fontSize: 15,
                       fontWeight: FontWeight.w300,
