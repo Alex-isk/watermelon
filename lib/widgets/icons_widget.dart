@@ -21,7 +21,7 @@ class IconsWidget extends StatelessWidget {
               ),
             );
           },
-          child: Icon(
+          child: const Icon(
             Icons.language_rounded,
             color: WatermelonColors.colorIcon,
             size: 30.0,
@@ -36,7 +36,7 @@ class IconsWidget extends StatelessWidget {
               ),
             );
           },
-          child: Icon(
+          child: const Icon(
             Icons.info_outline_rounded,
             color: WatermelonColors.colorIcon,
             size: 30.0,

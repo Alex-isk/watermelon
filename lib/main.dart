@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_watermelon/pages/main_page.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -8,10 +7,12 @@ import 'package:google_fonts/google_fonts.dart';
 
 
 void main() {
-  runApp(MyApp());
+  runApp(WatermelonApp());
 }
 
-class MyApp extends StatelessWidget {
+class WatermelonApp extends StatelessWidget {
+  const WatermelonApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

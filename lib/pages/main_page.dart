@@ -1,39 +1,34 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_watermelon/pages/info_page.dart';
-import 'package:flutter_watermelon/pages/language_page.dart';
 import 'package:flutter_watermelon/pages/sweet_page.dart';
 import 'package:flutter_watermelon/pages/watermelonpedia_page.dart';
 import 'package:flutter_watermelon/resource/watermelon_colors.dart';
-import 'package:flutter_watermelon/styles/glass.dart';
 import 'package:flutter_watermelon/widgets/action_button.dart';
 import 'package:flutter_watermelon/widgets/icons_widget.dart';
-import 'package:image_picker/image_picker.dart';
+
 
 class MainPage extends StatelessWidget {
+  const MainPage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return MainPageContent();
+    return const MainPageContent();
   }
 }
 
-/* TO DO
-1 - иконки
-- переключения языка - англ-рус
-- инфо - значeк -> страница с описанием + авторство
-2 - картинка - фон Да + sweet др шрифтом, цветом
- */
 
 class MainPageContent extends StatelessWidget {
+  const MainPageContent({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: WatermelonColors.red4,
+      backgroundColor: WatermelonColors.backgroundColor,
       body: SafeArea(
 
         child: Stack(
             children: [
           Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               image: DecorationImage(
                 image: AssetImage('assets/images/wmbackground.jpg'),
                 fit: BoxFit.cover,
@@ -43,8 +38,8 @@ class MainPageContent extends StatelessWidget {
           Expanded(
             child: Column(
               children: [
-                Padding(
-                  padding: const EdgeInsets.only(left: 10, top: 5, right: 10),
+                const Padding(
+                  padding: EdgeInsets.only(left: 10, top: 5, right: 10),
                   child: Expanded(
                     child: IconsWidget(),
                   ),
@@ -54,7 +49,7 @@ class MainPageContent extends StatelessWidget {
 
                 Text(
                   'sweet'.toLowerCase(),
-                  style: TextStyle(
+                  style: const TextStyle(
                     // color: Color(0xFFEF5350),
                     color: WatermelonColors.sweetText,
                     fontWeight: FontWeight.w500,
@@ -68,9 +63,9 @@ class MainPageContent extends StatelessWidget {
                   child: Text(
                     'Water\nMelon'.toUpperCase(),
                     textAlign: TextAlign.center,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 50,
-                      color: WatermelonColors.grey,
+                      color: WatermelonColors.greyText,
                       fontWeight: FontWeight.w800,
                       letterSpacing: 5, // межбуквенный интервал
                       // height: 1.1,                     // высота строки
@@ -89,7 +84,7 @@ class MainPageContent extends StatelessWidget {
                   onTap: () {
                     Navigator.of(context).push(
                       MaterialPageRoute(
-                        builder: (context) => SweetPage(),
+                        builder: (context) => const SweetPage(),
                       ),
                     );
                   },
@@ -103,7 +98,7 @@ class MainPageContent extends StatelessWidget {
                   onTap: () {
                     Navigator.of(context).push(
                       MaterialPageRoute(
-                        builder: (context) => WatermelonpediaPage(),
+                        builder: (context) => const WatermelonpediaPage(),
                       ),
                     );
                   },

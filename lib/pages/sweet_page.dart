@@ -6,13 +6,14 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_watermelon/pages/main_page.dart';
 import 'package:flutter_watermelon/resource/watermelon_colors.dart';
-import 'package:flutter_watermelon/styles/glass.dart';
 import 'package:flutter_watermelon/widgets/action_button.dart';
 import 'package:flutter_watermelon/widgets/sleek_slider_weight.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:sleek_circular_slider/sleek_circular_slider.dart';
+
 
 class SweetPage extends StatefulWidget {
+  const SweetPage({Key? key}) : super(key: key);
+
   @override
   State<SweetPage> createState() => _SweetPageState();
 }
@@ -26,8 +27,7 @@ class _SweetPageState extends State<SweetPage> {
   File? image;
   uploadImage() async {
     var pickedImage = await ImagePicker().pickImage(source: ImageSource.camera);
-
-    /// .camera
+                                                                   /// .camera
     setState(() {
       image = File(pickedImage!.path);
     });
@@ -41,14 +41,8 @@ class _SweetPageState extends State<SweetPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: WatermelonColors.red4,
-      // floatingActionButton: FloatingActionButton(
-      //   onPressed: () {},
-      //   tooltip: 'Increment',
-      //   child: Icon(Icons.blur_circular_outlined, color: WatermelonColors.red4,),
-      // ),
-      // floatingActionButtonLocation: FloatingActionButtonLocation.miniEndFloat,
-      // // backgroundColor: WatermelonColors.infoTextBackground,
+      backgroundColor: WatermelonColors.backgroundColor,
+
       body: SafeArea(
         child: Container(
           decoration: const BoxDecoration(
@@ -71,7 +65,7 @@ class _SweetPageState extends State<SweetPage> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
+                      children: const [
                         // const SizedBox(width: 5),
 
                         SleekSliderWeight(
@@ -97,12 +91,12 @@ class _SweetPageState extends State<SweetPage> {
                     child: Text(
                       'weight'.toUpperCase(),
                       // textAlign: TextAlign.center,
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontWeight: FontWeight.w500,
                         letterSpacing: 0, // межбуквенный интервал
                         // height: 20,                     // высота строки
                         fontSize: 20,
-                        color: WatermelonColors.lightpink,
+                        color: WatermelonColors.sleekPink,
                       ),
                     ),
                   ),
@@ -151,8 +145,8 @@ class _SweetPageState extends State<SweetPage> {
               //   ),
               // ),
 
-              Expanded(
-                child: const SizedBox(
+              const Expanded(
+                child: SizedBox(
                   height: 30,
                 ),
               ),

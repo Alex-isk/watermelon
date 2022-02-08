@@ -21,10 +21,10 @@ class ActionButton extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 20),
-        child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 20),
+        child: SizedBox(
           width: double.infinity,
-          // alignment: Alignment.bottomCenter,
+          // alignment: Alignment.bottomCenter, /// for Container
           // decoration: BoxDecoration(
           //   color: Color(0xFFEF5350),
           //   borderRadius: BorderRadius.circular(80),
@@ -37,12 +37,12 @@ class ActionButton extends StatelessWidget {
               child: Text(
                 text.toUpperCase(),
                 textAlign: TextAlign.center,
-                style: TextStyle(
+                style: const TextStyle(
                   fontWeight: FontWeight.w500,
                   letterSpacing: 4,            // межбуквенный интервал
                   // height: 20,                     // высота строки
                   fontSize: 20,
-                  color: WatermelonColors.grey2,
+                  color: WatermelonColors.buttonText,
                 ),
               ),
             ),

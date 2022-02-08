@@ -38,29 +38,30 @@ class SleekSliderWeight extends StatelessWidget {
             shadowWidth: 5),
         // CustomSliderWidths(trackWidth: ширина дорожки, progressBarWidth: ширина прогресса,handlerSize:размер ползунка,shadowWidth:тень прогресса
         customColors: CustomSliderColors(
-          trackColor: WatermelonColors.lightpink,
+          trackColor: WatermelonColors.sleekPink,
           // progressBarColors: [WatermelonColors.lightpink, WatermelonColors.lightpink2, WatermelonColors.red4],
           //   gradientStartAngle: 50, gradientEndAngle: 50,
-          progressBarColor: WatermelonColors.red2,
-          shadowColor: WatermelonColors.red4,
-          dynamicGradient: true, dotColor: WatermelonColors.grey,
+          progressBarColor: WatermelonColors.sleekProgressRed,
+          shadowColor: WatermelonColors.sleekShadowPink,
+          dynamicGradient: true,
+          dotColor: WatermelonColors.dotColor,
           shadowStep: 8,
         ),
         infoProperties: InfoProperties(
             bottomLabelText: text.toUpperCase(),
             // topLabelText: 'weight'.toUpperCase(),
-            topLabelStyle: TextStyle(
-              color: WatermelonColors.lightpink,
+            topLabelStyle: const TextStyle(
+              color: WatermelonColors.sleekPink,
               fontSize: 12,
               letterSpacing: 4,
             ),
-            bottomLabelStyle: TextStyle(
-              color: WatermelonColors.lightpink,
+            bottomLabelStyle: const TextStyle(
+              color: WatermelonColors.sleekPink,
               fontSize: 12,
               letterSpacing: 4,
             ),
-            mainLabelStyle: TextStyle(
-                color: WatermelonColors.lightpink, fontSize: 22),
+            mainLabelStyle: const TextStyle(
+                color: WatermelonColors.sleekPink, fontSize: 22),
             modifier: (double value) {
               // заменить проценты на кг
               final roundedValue =

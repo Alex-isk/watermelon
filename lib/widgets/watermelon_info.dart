@@ -60,7 +60,7 @@ class WatermelonInfo extends StatelessWidget {
                 Text(
                   name.toUpperCase(),
                   style: const TextStyle(
-                      color: WatermelonColors.grey,
+                      color: WatermelonColors.greyText,
                       fontSize: 20,
                       fontWeight: FontWeight.w700, fontFamily: 'BalsamiqSans-Regular'),
                 ),
@@ -70,7 +70,7 @@ class WatermelonInfo extends StatelessWidget {
                   softWrap: true,
                   textAlign: TextAlign.left,
                   style: const TextStyle(
-                      color: WatermelonColors.grey,
+                      color: WatermelonColors.greyText,
                       fontSize: 15,
                       fontWeight: FontWeight.w300,
                       // fontStyle: FontStyle.normal,
